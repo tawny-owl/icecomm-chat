@@ -2,14 +2,12 @@
 <html>
 <head>
   <title>Icecomm Video Chat</title>
-  <!-- // <script type="text/javascript" src="https://localhost:8443/icecomm.js"></script> -->
-  <script type="text/javascript" src="https://cdn.icecomm.io/icecomm.js"></script>
-  <!-- // <script type="text/javascript" src="http://helloaws-testbranch-env-ienx2qqkbc.elasticbeanstalk.com/icecomm.js"></script> -->
-  <!-- // <script type="text/javascript" src="http://10.8.10.232:8000/icecomm.js"></script> -->
+  <script type="text/javascript" src="https://icecomm-test.elasticbeanstalk.com/icecomm.js"></script>
 
 </head>
 <body>
   <video id="localVideo" autoplay muted></video>
+  <video id="remoteVideo" autoplay muted></video>
 </body>
 <script>
   //instantiate IceComm Object and connect
@@ -17,13 +15,17 @@
   comm.connect('someroom');
 
   //get local video/audio
+  var localVideo = document.getElementById('localVideo');
   comm.on('local', function(options) {
     localVideo.src = options.stream;
   });
 
   //get remote video/audio
+  var remoteVideo = document.getElementById('remoteVideo');
   comm.on('connected', function(options){
-    document.body.appendChild(options.video);
+    console.log('somebody connected');
+    remoteVideo.src = options.stream;
+    // document.body.appendChild(options.video);
   });
 
 </script>
