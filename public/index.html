@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Icecomm Video Chat</title>
+  <!-- // <script type="text/javascript" src="https://localhost:8443/icecomm.js"></script> -->
+  <script type="text/javascript" src="https://cdn.icecomm.io/icecomm.js"></script>
+  <!-- // <script type="text/javascript" src="http://helloaws-testbranch-env-ienx2qqkbc.elasticbeanstalk.com/icecomm.js"></script> -->
+  <!-- // <script type="text/javascript" src="http://10.8.10.232:8000/icecomm.js"></script> -->
+
+</head>
+<body>
+  <video id="localVideo" autoplay muted></video>
+</body>
+<script>
+  //instantiate IceComm Object and connect
+  var comm = new Icecomm('exm2aYaXifyEbDgzT0VqDtyDyHHJDAOI8eeaMuly24JF5qra');
+  comm.connect('someroom');
+
+  //get local video/audio
+  comm.on('local', function(options) {
+    localVideo.src = options.stream;
+  });
+
+  //get remote video/audio
+  comm.on('connected', function(options){
+    document.body.appendChild(options.video);
+  });
+
+</script>
+</html>
