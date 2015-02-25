@@ -1,7 +1,10 @@
 var express = require('express');
+var app = express();
 var port = process.env.PORT || 3000;
 
-var app = express();
+//database configuration
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/icecomm-chat');
 
 app.use(express.static(__dirname + '/public'));
 
