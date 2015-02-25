@@ -11,6 +11,13 @@ app.get('/', function(req, res){
 
 var adminRouter = express.Router();
 
+//admin route middleware
+adminRouter.use(function(req, res, next){
+  console.log(req.method, req.url);
+  next();
+});
+
+//admin routes
 adminRouter.get('/', function(req, res){
   res.send('admin dashboard');
 });
