@@ -9,6 +9,15 @@ app.get('/', function(req, res){
   res.sendFile('index.html');
 });
 
+app.route('/login')
+  .get(function(req, res){
+    res.send('this is supposed to be a login form');
+  })
+  .post(function(req, res){
+    console.log('processing login creds');
+    res.send('login is being processed');
+  });
+
 var adminRouter = express.Router();
 
 //admin route middleware
