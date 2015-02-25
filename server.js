@@ -17,6 +17,13 @@ adminRouter.use(function(req, res, next){
   next();
 });
 
+//admin route parameters
+adminRouter.param('name', function(req, res, next, name){
+  console.log('doing some validation on this name: ' + name);
+  req.name = name;
+  next();
+});
+
 //admin routes
 adminRouter.get('/', function(req, res){
   res.send('admin dashboard');
@@ -24,6 +31,10 @@ adminRouter.get('/', function(req, res){
 
 adminRouter.get('/users', function(req, res){
   res.send('all users');
+});
+
+adminRouter.get('/users/:name', function(req, res){
+  res.send('this routes to the specific user: ' + req.name);
 });
 
 adminRouter.get('/posts', function(req, res){
