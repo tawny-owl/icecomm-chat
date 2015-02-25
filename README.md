@@ -5,17 +5,17 @@ Icecomm Chat is a video conferencing application using icecomm.io
 ## Installation
 
 To install, please type the following commands into your console:
-`
+```
 git clone https://github.com/tawny-owl/icecomm-chat.git
 npm install
-`
+```
 
 ## Usage
 
 To run the application:
-`
+```
 npm start
-`
+```
 
 ## Contributing
 
