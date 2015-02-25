@@ -1,4 +1,4 @@
-# Project Name
+# Icecomm Chat
 
 Icecomm Chat is a video conferencing application using icecomm.io
 
